@@ -51,4 +51,29 @@ app.post('/login',function(req,res){
 
 })
 
+app.post('/logout',function(req,res){
+	// Typically passwords are encrypted using something like bcrypt before sending to database
+	const username=req.body.username;
+	;
+
+	// This should come from the database
+	const mockUsername="MarcoYeraW";
+	
+
+	if (username===mockUsername){
+		// In practice, use JSON web token sign method here to make an encrypted token
+		res.json({
+			success: true,
+			message: 'go out!',
+			token: 'encrypted token goes here'
+		})
+	} else {
+		res.json({
+			success: false,
+			message: 'user is incorrect'
+		})
+	}
+
+})
+
 app.listen(8000,function(){console.log('server is listening')})
